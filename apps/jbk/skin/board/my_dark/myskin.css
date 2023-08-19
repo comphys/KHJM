@@ -34,19 +34,6 @@
 .list-bulls2,.list-bears2 {cursor:pointer}
 .list-normal {text-align:right}
 .list-normal2 {text-align:right;cursor:pointer}
-#list-sum {font-weight:bold;background-color:darkslategray;text-align:right;color:bisque; }
-#list-filter {font-weight:bold;background-color:#1e2025;text-align:center;color:bisque;}
-#list-filter-submit {cursor:pointer}
-#list-filter-submit:hover {background-color:darkorange;}
-#filter-qry {color:yellow;}
-#filter-reset { cursor:pointer; width:60px; text-align:center;}
-#cell-sum {font-weight:bold;color:yellow;margin-right:10px}
-#send-to-mobile-div {display:none;background-color:black;padding:10px;border:1px solid black;border-radius:6px;border:none;}
-#send-to-mobile-select {display:inline-block;outline:none;margin-right:10px;}
-#send-to-mobile-text {display:inline-block;color:cyan;outline:none;width:600px;white-space:pre-wrap;}
-#send-to-mobile-send {display:inline-block;color:yellow;width:80px;text-align:right;}
-#extra-info-toggle{display:block;}
-
 .list-input-number {border:none;width:80px;text-align:right;background-color:transparent;}
 /* 
   BODY PART
@@ -67,7 +54,7 @@
 #imgDropZone {width:596px;height:422px;border-right:1px solid black}
 #img-title-div {width:60px;height:422px;background-color:#454545;padding:10px 20px;}
 #img-title-name {writing-mode:vertical-rl;text-orientation:sideways;font-size:16px;font-weight:bold;font-style:italic;color:#808080;}
-.image-view {text-align:center;color:darkgray;}
+.image-view {text-align:center;color:darkgray;cursor:pointer;}
 .toggle-tr {display:none;}
 /* ////////////////////////////////////////////////////////////////////////////////////////////////
 // WRITE PART

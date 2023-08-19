@@ -5,9 +5,6 @@ class Action(Control) :
     def _auto(self) :
         self.DB = self.db('jbk')
 
-    def set_message(self,msg,typ='alert') :
-        self.DB.exe(f"UPDATE act_message SET type='{typ}', message='{msg}' WHERE no=1")
-
     def board_add(self) :
         M = self.model('admin-board')
         notice = M.board_add()
@@ -48,6 +45,7 @@ class Action(Control) :
         wre = f"bid = '{bid}'"
         qry = self.DB.qry_update('h_board_config', self.D['post'], wre)
         self.DB.exe(qry)
+        self.set_message("현재 설정을 저장하였습니다",typ='notice')
         return self.moveto(f"admin/board_edit/bid={bid}/sec={self.D['post']['section']}/tab=0")
 
     def board_edit_access(self) :
@@ -67,6 +65,7 @@ class Action(Control) :
         wre = f"bid = '{bid}'"
         qry = self.DB.qry_update('h_board_config', self.D['post'], wre)
         self.DB.exe(qry)
+        self.set_message("현재 설정을 저장하였습니다",typ='notice')
         return self.moveto(f"admin/board_edit/bid={bid}/sec={sec}/tab=3")
 
     def section_sort(self) :

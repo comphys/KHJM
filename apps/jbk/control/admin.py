@@ -44,14 +44,3 @@ class Admin(Control) :
         self.D['active_tab'][tab] = 'active'
         D = {'title' : '보드관리자', 'header' : 'BK Admin', 'skin' : 'admin/board_sort.html'}
         return self.echo(D)
-
-    def get_message(self) :
-        msg = self.DB.exe("SELECT * FROM act_message WHERE no=1", many=1, assoc=True)
-        if msg['message'] :
-            self.D['act_msg'] = f"<script>h_dialog.{msg['type']}('{msg['message']}')</script>"
-            self.DB.exe("UPDATE act_message SET type='', message=''")
-        else :
-            self.D['act_msg'] = ''
-
-
-
