@@ -1,0 +1,85 @@
+<div>
+    <div style="background-color:black;opacity:0.8;padding:5px 10px;color:blanchedalmond;clear:both;height:30px;">
+        <div style="float:left">
+            <i class="fa fa-wpforms" style="color:yellow"></i> {{D['LINE']['add0']}}&nbsp;&nbsp;
+            <i class="fa fa-user"></i> {{D['LINE']['add1']}}&nbsp;&nbsp;  
+            <i class="fa fa-product-hunt"></i> {{D['LINE']['add2']}} 
+        </div>
+        <div style="float:right">
+            <i class="fa fa-calendar-check-o"></i> {{D['LINE']['add3']}}
+        </div>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead style="color:white">
+            <tr style="border-bottom:1px solid black;border-top:2px solid black;background-color:#0B2F3A;">
+                <th style="font-style:italic;width:60px">No</th>
+                <th style="width:100px;text-align:right">회사단가</th>
+                <th style="width:100px;text-align:left;">외주업체</th>
+                <th style="width:100px;text-align:right">재료비</th>
+                <th style="width:100px;text-align:right">용접비</th>
+                <th style="width:100px;text-align:right">가공비</th>
+                <th style="width:100px;text-align:right">후처리</th>
+                <th style="width:100px;text-align:right">단  가</th>
+                <th style="width:60px;text-align:right">수  량</th>
+                <th style="width:100px;text-align:right">총금액</th>
+                <th style="font-style:italic">비 고</th>
+            </tr>
+        </thead>
+        <tbody id="table-excel" style="color:lightgray;background-color:darkslategrey;opacity:0.9" onclick="h_dialog.close('list-estimate-table')">
+            {% for i in range(8) %}
+            <tr> 
+                <td class='list-c1'>{{i+1}}</td>
+                <td class='list-c2'>&nbsp;</td>
+                <td class='list-c3'></td>		
+                <td class='list-c4'></td>
+                <td class='list-c5'></td>
+                <td class='list-c6'></td>
+                <td class='list-c7'></td>
+                <td class='list-c8'></td>
+                <td class='list-c9'></td>
+                <td class='list-c10'></td>
+                <td class='list-c11'></td>
+            </tr>
+            {% endfor %}
+            <tr style="background-color:#071418;height:30px;"> 
+                <td class='text-center'>합 계</td>
+                <td class="c-total" style="padding-right:12px;"></td>
+                <td></td>
+                <td class="c-total" style="padding-right:12px;"></td>
+                <td class="c-total" style="padding-right:12px;"></td>
+                <td class="c-total" style="padding-right:12px;"></td>
+                <td class="c-total" style="padding-right:12px;"></td>
+                <td class="c-total"></td>
+                <td></td>
+                <td class="c-total"></td>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+$(document).ready(function(){v_to_tbl();});    
+    function xyt(x,y,txt) { $("#table-excel").children("tr:nth-child("+x+")").children("td:nth-child("+y+")").text(txt); }
+    function v_to_tbl() {
+        var val
+        val = "{{D['LINE']['add11']}}"; srv = val.split('/*/'); var i=1;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}	
+        val = "{{D['LINE']['add12']}}"; srv = val.split('/*/'); var i=2;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+        val = "{{D['LINE']['add13']}}"; srv = val.split('/*/'); var i=3;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+        val = "{{D['LINE']['add14']}}"; srv = val.split('/*/'); var i=4;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+        val = "{{D['LINE']['add15']}}"; srv = val.split('/*/'); var i=5;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+        val = "{{D['LINE']['add16']}}"; srv = val.split('/*/'); var i=6;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+        val = "{{D['LINE']['add17']}}"; srv = val.split('/*/'); var i=7;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+        val = "{{D['LINE']['add18']}}"; srv = val.split('/*/'); var i=8;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+        val = "{{D['LINE']['add10']}}"; srv = val.split('/*/'); var i=9;
+        if(srv) {xyt(i,2,srv[0]);xyt(i,3,'');xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,'');xyt(i,10,srv[8]);xyt(i,11,'');}
+    }
+</script>

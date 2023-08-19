@@ -10,7 +10,7 @@
 .list-edit-on { color:white; background-color:#0058b0; font-weight:bold; outline:none;}
 .list-subject { cursor:pointer }
 .list-current-no {text-align:center; width:60px}
-.list-no {text-align:center;}
+.list-no {text-align:center;width:60px}
 
 .list-c1 {text-align:center;color:#CEECF5;}
 .list-c2 {text-align:right;}
@@ -24,6 +24,7 @@
 .list-c10  {text-align:right;font-weight:bold;color:#F6E3CE;}
 .list-c11  {text-align:left;font-style:italic;color:lightgray;font-weight:bold}
 .c-total   {text-align:right;font-weight:bold;color:#F6E3CE;}
+.list-amount {cursor: pointer;}
 
 .list-wdate { text-align:center; color:gray;}
 .list-mdate { text-align:center; color:#ffeaea;}
@@ -54,14 +55,14 @@
 #imgDropZone {width:596px;height:422px;border-right:1px solid black}
 #img-title-div {width:60px;height:422px;background-color:#454545;padding:10px 20px;}
 #img-title-name {writing-mode:vertical-rl;text-orientation:sideways;font-size:16px;font-weight:bold;font-style:italic;color:#808080;}
-.image-view {text-align:center;color:darkgray;cursor:pointer;}
+.image-view {text-align:center;color:darkgray;cursor:pointer;width:70px;}
 .toggle-tr {display:none;}
 /* ////////////////////////////////////////////////////////////////////////////////////////////////
 // WRITE PART
 //////////////////////////////////////////////////////////////////////////////////////////////// */
 .w-i-title {width:96%;border:none;height:22px}
 
-#contentEditor { width:340px;height:180px;margin-top:10px;padding:10px;border:2px solid black;border-radius:4px;background-color:#24272D;}
+#contentEditor { width:340px;height:180px;margin-top:10px;padding:10px;border:2px solid black;border-radius:4px;background-color:#24272D;overflow-y:auto;}
 
 
 .write-td-left  { text-align:left; padding-left:15px; padding-right:10px; background-color: #4a505e; width:80px;}

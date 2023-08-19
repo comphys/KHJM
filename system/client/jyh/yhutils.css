@@ -24,6 +24,9 @@
 }
 .h_dialog_basic_prompt { border:1px solid gray; border-radius:4px; height:30px; width:200px; padding:5px; text-align:center; background-color:white; color:black;}
 .h_dialog_basic_btn1:hover, .h_dialog_basic_btn2:hover, .h_dialog_basic_btn3:hover { background: #224467;  color: #FFF}
+
+.h_dialog_transparent_content { overflow-y:auto;}
+
 /****************************************************************************************************************************************************
 * H_dialog :: IMAGE CSS
 *****************************************************************************************************************************************************/

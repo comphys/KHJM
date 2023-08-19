@@ -109,7 +109,8 @@ $(document).ready(function(){
 	$(".i-date_1").Zebra_DatePicker({format:'Y-m-d', first_day_of_week : 0, show_icon:false, show_clear_date:1,onSelect:function(){$("form[name=category_search]").submit();}});
 	$(".i-date_2").Zebra_DatePicker({format:'Y-m-d', first_day_of_week : 0, show_icon:false, show_clear_date:1,onSelect:function(){$("form[name=category_search]").submit();}});
 	$(".image-view").click(function(){ image_list_view(this); });
-	$(".no-image").click(function(){ h_dialog.notice("이 프로젝트에는 저장된 도면이 없습니다") });
+	$(".no-image").click(function(){ h_dialog.notice("이 프로젝트에는 저장된 도면이 없습니다"); });
+	$(".list-amount").click(function(){ show_estimate_table(this);  });
 	
 });
 
@@ -122,5 +123,14 @@ function image_list_view(sel) {
 		h_dialog.image(url,{id:iid,overlay:false});
 	}
 }
+
+function show_estimate_table(sel) {
+	var no = $(sel).data('no');
+	var url = uri('linkurl') + 'board/estimate/estimate/no='+no;
+	var ypos = mouse_Y;
+	var o = {id:'list-estimate-table',x:200, y:mouse_Y+15,header:false,footer:false,drag:true,css:'transparent'}
+	h_dialog.load(url,o);
+}
+
 </script>
 {% endblock %}

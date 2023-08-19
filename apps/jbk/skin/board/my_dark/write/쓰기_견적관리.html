@@ -6,7 +6,7 @@
 <input type='hidden' name='add4'	value="{{D['BODY']['add4']}}" >
 <input type='hidden' name='add6'	value="{{D['BODY']['add6']}}" >
 <input type='hidden' name='add7'	value="{{D['BODY']['add7']}}" >
-<input type='hidden' name='content' >
+<textarea name='content' style="display:none"></textarea>
 <input type='hidden' name='add10'	value="{{D['BODY']['add10']}}" >
 <input type='hidden' name='add11'	value="{{D['BODY']['add11']}}" >
 <input type='hidden' name='add12'	value="{{D['BODY']['add12']}}" >
@@ -52,8 +52,7 @@
 				<input type='text' name='add5' class="i-text" style="width:240px;" value="{{D['BODY']['add5']}}">
 			</div>
 			
-			<div id="contentEditor" contenteditable="true">
-				<p>{% if D['Mode'] == 'modify' -%}{{D['BODY']['content']|safe}}{% else %}{%- endif %}</p>
+			<div id="contentEditor" contenteditable="true">{% if D['Mode'] == 'modify' -%}{{D['BODY']['content']|safe}}{% else %}<p>추가내용작성</p>{%- endif %}
 			</div>	
 		</div>
 	</div>
@@ -164,9 +163,8 @@ function check_MainWriteForm(f)	{
 	total = txy(9,10);
 	$("input[name=add4]").val(total);
 
-	var content = $("#contentEditor").html();
-	content=content.replace(/<p>/ig,'').replace(/<\/p>/ig,'[br]').replace( /<br[^>]*>/ig, '[br]');
-	$("input[name=content]").val(content);
+	var wDiv = $id("contentEditor");
+	f.content.value = wDiv.innerHTML;
 	
 	if(!confirm("저장하시겠습니까?")) return false;
 	return true;

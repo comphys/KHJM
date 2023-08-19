@@ -159,7 +159,7 @@ class Control :
         return html.unescape(html_str)
         
     def html_encode(self,html_str,ignoreNewLine=True) :
-        if ignoreNewLine : html_str = html_str.replace('\r\n','')
+        if ignoreNewLine : html_str = html_str.replace('\r\n',''); html_str = html_str.replace('\t','')
         return html.escape(html_str)
 
     def html_pretty(self,html_str) :

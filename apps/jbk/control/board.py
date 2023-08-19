@@ -57,6 +57,15 @@ class Board(Control) :
         M.write_main()
         D={'skin': self.skin + '/write/' + self.D['BCONFIG']['sub_write']}
         return self.echo(D)
+
+    def estimate(self) :
+        if not 'JBK_KHJM' in session : return self.moveto('board/login')
+        no = self.gets['no']
+        self.DB.tbl, self.DB.wre = ("h_estimate_board",f"no='{no}'")
+        self.D['LINE'] = self.DB.get_line("add0,add1,add2,add3,add11,add12,add13,add14,add15,add16,add17,add18,add10")
+        D={'skin': self.skin + '/body/' + '본문_견적표.html'}
+        return self.echo(D) 
+ 
     
     def login(self) :
         session['JBK_KHJM'] = 'ESTIMATE_PROGRAM 20230816'

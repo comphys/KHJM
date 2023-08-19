@@ -17,7 +17,6 @@ class M_board_write(Model) :
             qry = f"SELECT * FROM h_{self.D['bid']}_board WHERE no={self.D['No']}"
             self.D['OBODY'] = self.DB.line(qry)
             self.D['OBODY']['content'] = self.SYS.html_decode(self.D['OBODY']['content'])
-            self.D['OBODY']['content'] = self.D['OBODY']['content'].replace("[br]","<br>")
             
         SKIN = self.SYS.load_skin("write")
         SKIN.write()

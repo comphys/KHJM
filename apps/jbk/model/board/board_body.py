@@ -16,6 +16,6 @@ class M_board_body(Model) :
         self.D['BODY']['wdate']   = ut.timestamp_to_date(BODY['wdate'])
         self.D['BODY']['mdate']   = ut.timestamp_to_date(BODY['mdate'])
         self.D['BODY']['content'] = self.SYS.html_decode(BODY['content'])
-        self.D['BODY']['content'] = self.D['BODY']['content'].replace("[br]","<br>")
+
 
 

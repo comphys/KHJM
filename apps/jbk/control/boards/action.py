@@ -22,20 +22,28 @@ class Action(Control) :
 
         SAVE = self.D['post']
 
-        if SAVE['mode'] == 'add_body' :
-            no = int(self.gets.get('no',0))
-            origin = int(SAVE['brother']) if int(SAVE['brother']) > 0 else no
-            qry = f"UPDATE {self.board} SET brother = brother-1 WHERE no={origin}"
-            self.DB.exe(qry)
-            SAVE['brother'] = no if int(SAVE['brother']) <= 0 else int(SAVE['brother'])
-
- 
         SAVE['wdate']   = my.now_timestamp()
         SAVE['mdate']   = SAVE['wdate']
         SAVE['content'] = self.html_encode(SAVE['content'])
-        self.info( SAVE['content'])
         SAVE.pop('mode')
-       
+        # ------------------------------------------------------------------
+        if self.bid == 'estimate' :
+            new_image_config = self.DB.one("SELECT save_img_dir2 FROM h_estimate_config WHERE no=1")
+            if  new_image_config == '도면번호' and SAVE['add6'] and SAVE['add7'] :
+                ext = my.file_split(SAVE['add6'])[2]
+                old_name = SAVE['add7']
+                new_name = f"{SAVE['add0']}.{ext}"
+                if old_name != new_name :
+                    old_full_name = SAVE['add6']
+                    new_full_name = SAVE['add6'].replace(old_name,new_name) 
+
+                    old_save_name = old_full_name.replace("/DOCU_ROOT",self.C['DOCU_ROOT'])
+                    new_save_name = new_full_name.replace("/DOCU_ROOT",self.C['DOCU_ROOT'])
+                    if  my.file_exist(old_save_name) : 
+                        my.rename_file(old_save_name,new_save_name)
+                        SAVE['add7'] = new_name
+                        SAVE['add6'] = new_full_name
+        # ------------------------------------------------------------------
         qry = self.DB.qry_insert(self.board,SAVE)
         self.DB.exe(qry)
 
@@ -84,7 +92,24 @@ class Action(Control) :
         # 
         self.D['post']['mdate'] = my.now_timestamp()
         self.D['post']['content'] = self.html_encode(self.D['post']['content'])
+        # ------------------------------------------------------------------
+        if self.bid == 'estimate' :
+            new_image_config = self.DB.one("SELECT save_img_dir2 FROM h_estimate_config WHERE no=1")
+            if  new_image_config == '도면번호' and self.D['post']['add6'] and self.D['post']['add7'] :
+                ext = my.file_split(self.D['post']['add6'])[2]
+                old_name = self.D['post']['add7']
+                new_name = f"{self.D['post']['add0']}.{ext}"
+                if old_name != new_name :
+                    old_full_name = self.D['post']['add6']
+                    new_full_name = self.D['post']['add6'].replace(old_name,new_name) 
 
+                    old_save_name = old_full_name.replace("/DOCU_ROOT",self.C['DOCU_ROOT'])
+                    new_save_name = new_full_name.replace("/DOCU_ROOT",self.C['DOCU_ROOT'])
+                    if  my.file_exist(old_save_name) : 
+                        my.rename_file(old_save_name,new_save_name)
+                        self.D['post']['add7'] = new_name
+                        self.D['post']['add6'] = new_full_name
+        # ------------------------------------------------------------------
         qry = self.DB.qry_update(tbl,self.D['post'],con)
         self.DB.exe(qry)
 
