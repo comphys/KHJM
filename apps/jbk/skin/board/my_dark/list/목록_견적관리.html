@@ -108,6 +108,19 @@
 $(document).ready(function(){ 
 	$(".i-date_1").Zebra_DatePicker({format:'Y-m-d', first_day_of_week : 0, show_icon:false, show_clear_date:1,onSelect:function(){$("form[name=category_search]").submit();}});
 	$(".i-date_2").Zebra_DatePicker({format:'Y-m-d', first_day_of_week : 0, show_icon:false, show_clear_date:1,onSelect:function(){$("form[name=category_search]").submit();}});
+	$(".image-view").click(function(){ image_list_view(this); });
+	$(".no-image").click(function(){ h_dialog.notice("이 프로젝트에는 저장된 도면이 없습니다") });
+	
 });
+
+function image_list_view(sel) {
+	var url = $(sel).data('href');
+	var f_name = url.split('/').reverse()[0]
+	if(f_name.match(/\.(jpg|png|gif|jpeg|bmp)$/i)) {
+		var iid = src_filter(f_name);
+		if($("#"+iid)) h_dialog.close(iid);
+		h_dialog.image(url,{id:iid,overlay:false});
+	}
+}
 </script>
 {% endblock %}

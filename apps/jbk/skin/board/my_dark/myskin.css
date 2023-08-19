@@ -64,40 +64,17 @@
 #body-content ul,#body-content ol { margin-left:5px; padding-left:30px; border-left:3px solid gray}
 
 
-#YHBreplyDiv {display:none; margin-top:-51px;margin-bottom:10px;}
-#YHBreplyDiv  .btn-group > .btn-small, .replyInnerBody  .btn-group > .btn-small { font-size:14px; }
-#YHBreplyDiv  .btn-group > .btn:first-child, #editor_buttons .btn-group > .btn:last-child  { border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
-#wysiwygYHBreplyEditor {	
-	min-height:40px; 
-	padding:10px;margin:0; text-align:left; word-break:break-all; overflow:auto; border: 0;border-radius: 4px;
-	box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;}
-#wysiwygYHBreplyEditor:focus, .replyInnerR:focus { outline:none; }
-
-#replyOuterBody  {border-radius:4px; border:2px solid black;margin-bottom:10px;}
-.replyInnerBody  {border-bottom:1px solid #2F3236;}
-.replyInnerL {width:145px; float:left;  padding:5px 8px; color:#9d9d9d;}
-.replyInnerT {width:145px; float:left;  padding:10px 8px 0px 8px; }
-.replyInnerR {float:left; border-left:1px solid #2F3236; padding:5px 8px;}
-.replyInnerE {float:right;  padding:5px 5px; color:#3e3e3e; cursor:pointer;}
-#reply-toolbar { margin-left:145px}
-#replyOuterBody > .replyInnerBody:nth-child(even) { background-color: #24272d; }
-#replyOuterBody > .replyInnerBody:nth-child(odd) { background-color: #1e2025; }
-#replyOuterBody > .replyInnerBody:last-child { border-bottom:none; }
-#ext_body_toggle:hover { cursor:pointer; background-color:#b94a48; }
-
-.my-span-title   { display:inline-block; background-color:#3c3c3c }
-.my-span-content { border:1px solid #373737 }
-
-
 #imgDropZone {width:596px;height:422px;border-right:1px solid black}
 #img-title-div {width:60px;height:422px;background-color:#454545;padding:10px 20px;}
 #img-title-name {writing-mode:vertical-rl;text-orientation:sideways;font-size:16px;font-weight:bold;font-style:italic;color:#808080;}
+.image-view {text-align:center;color:darkgray;}
+.toggle-tr {display:none;}
 /* ////////////////////////////////////////////////////////////////////////////////////////////////
 // WRITE PART
 //////////////////////////////////////////////////////////////////////////////////////////////// */
 .w-i-title {width:96%;border:none;height:22px}
 
-#contentEditor { width:340px;height:180px;margin-top:10px;padding:10px;border:2px solid black;border-radius:4px;background-color:#24272D;overflow-y:auto;}
+#contentEditor { width:340px;height:180px;margin-top:10px;padding:10px;border:2px solid black;border-radius:4px;background-color:#24272D;}
 
 
 .write-td-left  { text-align:left; padding-left:15px; padding-right:10px; background-color: #4a505e; width:80px;}

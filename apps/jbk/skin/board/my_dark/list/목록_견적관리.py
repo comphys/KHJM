@@ -57,7 +57,9 @@ class 목록_견적관리(SKIN) :
                     elif key == 'mdate' : tx[key] = f"<td class='list-mdate'>{txt}</td>"                    
                     elif key == 'hit'   : tx[key] = f"<td class='list-hit'>{txt}</td>" 
                     elif key == 'uname' : tx[key] = f"<td class='list-name'>{txt}</td>"
-                    
+                    elif key == 'add6'  : 
+                        if txt : tx[key] = f"<td class='image-view' data-href='{txt}'><i class='fa fa-file-image-o'></i></td>"
+                        else : tx[key] = f"<td style='color:darkgray;text-align:center' class='no-image'><i class='fa fa-file-o'></i></td>"
                     elif key == 'add0'  : 
                         if self.D['EXCOLOR']['add0'] : style = f"style='color:{self.D['EXCOLOR']['add0']}'"
                         if item['tle_color'] : style = f"style='color:{item['tle_color']};font-weight:bold'"

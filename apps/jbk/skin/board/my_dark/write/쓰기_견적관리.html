@@ -168,9 +168,6 @@ function check_MainWriteForm(f)	{
 	content=content.replace(/<p>/ig,'').replace(/<\/p>/ig,'[br]').replace( /<br[^>]*>/ig, '[br]');
 	$("input[name=content]").val(content);
 	
-	console.log(content)
-	h_dialog.alert($("input[name=content]").val())
-	
 	if(!confirm("저장하시겠습니까?")) return false;
 	return true;
 }

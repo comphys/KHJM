@@ -84,7 +84,6 @@ class Action(Control) :
         # 
         self.D['post']['mdate'] = my.now_timestamp()
         self.D['post']['content'] = self.html_encode(self.D['post']['content'])
-        self.info( self.D['post']['content'])
 
         qry = self.DB.qry_update(tbl,self.D['post'],con)
         self.DB.exe(qry)

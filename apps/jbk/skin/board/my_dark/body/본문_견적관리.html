@@ -37,8 +37,9 @@
 				<div class='write-input-server'>간단메모</div>
 				<div class="i-text-div" style="width:240px;">{{D['BODY']['add5']}}</div>
 			</div>
-			<div style="margin-top:10px;font-style:italic;text-align:left;color:#a5a5a5"></div>
-			<div style="width:340px;height:180px;margin-top:10px;border:2px solid black;border-radius:4px;padding:10px;line-height:25px;color:lightgray;background-color:#2b2b2b;">{{D['BODY']['content']|safe}}</div>	
+			<div id="contentEditor">
+				<p>{{D['BODY']['content']|safe}}</p>
+			</div>	
 		</div>
 	</div>
 	</div>
@@ -46,7 +47,7 @@
 	<div style="margin-top:10px;margin-bottom:0px">
 		<table class="table table-bordered table-striped table-hover">
 			<thead>
-				<tr style="border-bottom:1px solid black;border-top:2px solid black;background-color:#0B2F3A;">
+				<tr style="border-bottom:1px solid black;border-top:2px solid black;background-color:#0B2F3A;" onclick="$('.toggle-tr').toggle()">
 					<th style="font-style:italic;width:60px">No</th>
 					<th style="width:100px;text-align:right">회사단가</th>
 					<th style="width:100px;text-align:left;">외주업체</th>
@@ -61,6 +62,21 @@
 				</tr>
 			</thead>
 			<tbody id="table-excel">
+				{% for i in range(8) %}
+				<tr class="toggle-tr"> 
+					<td class='list-c1'>{{i+1}}</td>
+					<td class='list-c2'>&nbsp;</td>
+					<td class='list-c3'></td>		
+					<td class='list-c4'></td>
+					<td class='list-c5'></td>
+					<td class='list-c6'></td>
+					<td class='list-c7'></td>
+					<td class='list-c8'></td>
+					<td class='list-c9'></td>
+					<td class='list-c10'></td>
+					<td class='list-c11'></td>
+				</tr>
+				{% endfor %}
 				<tr style="background-color:#071418;"> 
 					<td class='text-center'>합 계</td>
 					<td class="c-total" style="padding-right:12px;"></td>
@@ -82,7 +98,7 @@
 			<a href="{{D['_bse']}}board/modify/{{D['bid']}}/no={{D['No']}}/page={{D['page']}}/{{D['Searchplus']}}">
 			<button class='btn btn-blue btn-small'>내용수정</button>
 			</a>
-			<button class='btn btn-small btn-red' onclick="delete_chk('{{D['_bse']}}boards-action/delete/{{D['bid']}}/no={{D['No']}}/page={{D['page']}}')">삭제하기</button>
+			<button class='btn btn-small btn-red' onclick="delete_confirm('{{D['_bse']}}boards-action/delete/{{D['bid']}}/no={{D['No']}}/page={{D['page']}}')">삭제하기</button>
 		</div>
 		<div class='pull-right'>
 			<a href="{{D['_bse']}}board/list/{{D['bid']}}/page={{D['page']}}">
@@ -199,17 +215,34 @@
 
 <script>
 $(document).ready(function(){ 
-$(".file-thumb").click(function(){ var sel = $(this).parent().next(); image_view(this); });
+$(".file-thumb").click(function(){ image_view(this); });
 v_to_tbl();
 $(".i-date_1").Zebra_DatePicker({format:'Y-m-d', first_day_of_week : 0, show_icon:false, show_clear_date:1,onSelect:function(){$("form[name=category_search]").submit();}});
 $(".i-date_2").Zebra_DatePicker({format:'Y-m-d', first_day_of_week : 0, show_icon:false, show_clear_date:1,onSelect:function(){$("form[name=category_search]").submit();}});
+$(".image-view").click(function(){ image_list_view(this); });
+$(".no-image").click(function(){ h_dialog.notice("이 프로젝트에는 저장된 도면이 없습니다") });
 });
 
 function xyt(x,y,txt) { $("#table-excel").children("tr:nth-child("+x+")").children("td:nth-child("+y+")").text(txt); }
 function v_to_tbl() {
-	var i=1;
-	val = "{{D['BODY']['add10']}}";
-	srv = val.split('/*/');
+    var val
+	val = "{{D['BODY']['add11']}}"; srv = val.split('/*/'); var i=1;
+	if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}	
+	val = "{{D['BODY']['add12']}}"; srv = val.split('/*/'); var i=2;
+	if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+	val = "{{D['BODY']['add13']}}"; srv = val.split('/*/'); var i=3;
+	if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+	val = "{{D['BODY']['add14']}}"; srv = val.split('/*/'); var i=4;
+	if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+	val = "{{D['BODY']['add15']}}"; srv = val.split('/*/'); var i=5;
+	if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+	val = "{{D['BODY']['add16']}}"; srv = val.split('/*/'); var i=6;
+	if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+	val = "{{D['BODY']['add17']}}"; srv = val.split('/*/'); var i=7;
+	if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+	val = "{{D['BODY']['add18']}}"; srv = val.split('/*/'); var i=8;
+	if(srv) {xyt(i,2,srv[0]);xyt(i,3,srv[1]);xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,srv[7]);xyt(i,10,srv[8]);xyt(i,11,srv[9]);}
+	val = "{{D['BODY']['add10']}}"; srv = val.split('/*/'); var i=9;
 	if(srv) {xyt(i,2,srv[0]);xyt(i,3,'');xyt(i,4,srv[2]);xyt(i,5,srv[3]);xyt(i,6,srv[4]);xyt(i,7,srv[5]);xyt(i,8,srv[6]);xyt(i,9,'');xyt(i,10,srv[8]);xyt(i,11,'');}
 }
 
@@ -223,22 +256,16 @@ function image_view(sel) {
 	}
 }
 
-function imgView() {
-	var url = $("#imgDropZone img").attr('src');
-	if(url) { 
-		var f_name = url.split('/').reverse()[0]
-		if(f_name.match(/\.(jpg|png|gif|jpeg|bmp)$/i)) {
-			var iid = src_filter(f_name);
-			if($("#"+iid)) h_dialog.close(iid);
-			h_dialog.image(url,{id:iid,overlay:false});
-		}
+function image_list_view(sel) {
+	var url = $(sel).data('href');
+	var f_name = url.split('/').reverse()[0]
+	if(f_name.match(/\.(jpg|png|gif|jpeg|bmp)$/i)) {
+		var iid = src_filter(f_name);
+		if($("#"+iid)) h_dialog.close(iid);
+		h_dialog.image(url,{id:iid,overlay:false});
 	}
 }
 
-function delete_chk(url) {
-	if(uri('brother') < 0) h_dialog.notice("추가글이 존재합니다."); 
-	else delete_confirm(url);
-}
 </script>
 
 {% endblock %}
