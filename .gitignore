@@ -1,0 +1,11 @@
+*.pyc
+*.log
+*.ipynb
+config.ini
+test*.py
+# db folder, mytest folder는 업데이트 하지 않는다.
+mydb/
+mytest/
+ipynb/
+apps/jbk/
+__pycache__/
