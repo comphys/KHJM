@@ -1,5 +1,5 @@
 <div>
-    <div style="background-color:black;opacity:0.8;padding:5px 10px;color:blanchedalmond;clear:both;height:30px;">
+    <div style="background-color:black;opacity:0.8;padding:5px 10px;color:blanchedalmond;clear:both;height:30px;" onclick="h_dialog.close('list-estimate-table')">
         <div style="float:left">
             <i class="fa fa-wpforms" style="color:yellow"></i> {{D['LINE']['add0']}}&nbsp;&nbsp;
             <i class="fa fa-user"></i> {{D['LINE']['add1']}}&nbsp;&nbsp;  
@@ -25,7 +25,7 @@
                 <th style="font-style:italic">비 고</th>
             </tr>
         </thead>
-        <tbody id="table-excel" style="color:lightgray;background-color:darkslategrey;opacity:0.9" onclick="h_dialog.close('list-estimate-table')">
+        <tbody id="table-excel" style="color:lightgray;background-color:darkslategrey;opacity:0.9">
             {% for i in range(8) %}
             <tr> 
                 <td class='list-c1'>{{i+1}}</td>
