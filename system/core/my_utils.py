@@ -16,6 +16,9 @@ def sv(v,s='f') :
     return float(v.replace(',','')) if s=='f' else int(v.replace(',',''))
 
 # 파일조작 관련 함수 
+def file_exist(filename) :
+    return os.path.isfile(filename)
+
 def file_split(filename) :
     '''
     filename을 입력으로 [경로, 파일명, 확장자]를 리턴함
