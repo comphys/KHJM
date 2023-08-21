@@ -20,10 +20,8 @@ class 목록_견적관리(SKIN) :
         
         self.D['head_td'] = THX       
         self.D['SHTITLE'] = {}
-        self.info(self.D['EXTITLE'])
-        for key, val in self.D['EXTITLE'].items() :
-            if key in ('add0','add1','add2','add3','add4','add5','add6') :
-                self.D['SHTITLE'][key] = val
+        for key in ('add0','add1','add2','add3','add4','add5','add6') :
+            self.D['SHTITLE'][key] = self.D['EXTITLE'][key]
 
     def data_preprocess(self) :
         if self.TrCnt :
