@@ -19,8 +19,11 @@ class 목록_견적관리(SKIN) :
             else : THX[key] = f"<th class='list-sort2' onclick=\"sort_go('{key}')\" style='text-align:{TH_align[key]}'>{TH_title[key]}</th>"
         
         self.D['head_td'] = THX       
-        
-        self.D['SHTITLE'] = {'add0': '모델명', 'add1': '회사명', 'add2': '프로젝트', 'add3': '납입기한', 'add4': '견적가', 'add5': '간단메모'}
+        self.D['SHTITLE'] = {}
+        self.info(self.D['EXTITLE'])
+        for key, val in self.D['EXTITLE'].items() :
+            if key in ('add0','add1','add2','add3','add4','add5','add6') :
+                self.D['SHTITLE'][key] = val
 
     def data_preprocess(self) :
         if self.TrCnt :

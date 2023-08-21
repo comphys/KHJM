@@ -87,8 +87,10 @@ class M_board_list(Model) :
    
     def page_maker(self,page_total,this_page,page_start,page_end) :
         pagelist = '/jbk/board/list/'+self.D['bid']
-        if self.D['Sort']  : pagelist += '/sort=' + self.D["Sort"]
-        if self.D['Sort1'] : pagelist += '/sort1=' + self.D["Sort1"]
+        if self.D['Sort']     : pagelist += '/sort=' + self.D["Sort"]
+        if self.D['Sort1']    : pagelist += '/sort1=' + self.D["Sort1"]
+        if self.D['search']   : pagelist += '/search=' + self.D["search"]
+        if self.D['search_f'] : pagelist += '/search_f=' + self.D["search_f"]
 
         page_number_list =''
         if page_start > 1 :
