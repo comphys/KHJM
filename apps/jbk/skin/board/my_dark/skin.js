@@ -381,7 +381,9 @@ function list_search2() {
 	var search = $("input[name='search_value']").val();
 	if(! search ) return;
 	var search_f = $("input[name='search_field']").val();
-	var url = uri('linkurl') + 'board/list/' + uri(0) ;
+	var bid = uri(0);
+	if(!bid) bid='estimate'
+	var url = uri('linkurl') + 'board/list/' + bid ;
 	url += '/search=' + search; 
 	if(search_f) url += '/search_f=' + search_f;
 	location.href = url; 
